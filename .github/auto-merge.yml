@@ -1,0 +1,4 @@
+updateBranch: false
+deleteBranchAfterMerge: true
+reportStatus: true
+mergeMethod: merge

@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "firefox",
+      "request": "launch",
+      "name": "Launch Firefox",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}",
+      "profileDir": "${env:HOME}/DebugBrowsers/Firefox",
+      "reAttach": true
+    },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Launch Chrome",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}",
+      "userDataDir": "${env:HOME}/DebugBrowsers/Chrome"
+    }
+  ]
+}

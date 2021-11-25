@@ -1,0 +1,35 @@
+name: CI
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: 'Checkout repository'
+        uses: actions/checkout@v2
+
+      - name: Verify correct package manager
+        uses: ChromaticHQ/javascript-lockfile-check-action@v1.2.0
+        with:
+          package-manager: yarn
+
+      - name: Line endings
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          excludeFiles: '**/**.png;'
+        id: validate
+        uses: microsoftgraph/eol-blocker@v1.0.8
+
+      - name: 'Install dependencies'
+        run: yarn install --frozen-lockfile
+
+      - name: 'Build the app'
+        run: yarn run build
+
+      - name: Prettier
+        run: npx prettier --check .
+
+      - name: Lint
+        run: yarn run lint
