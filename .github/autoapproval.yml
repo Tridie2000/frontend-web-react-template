@@ -1,4 +1,5 @@
 from_owner:
+  - Tridie2000
   - dependabot[bot]
 
 required_labels: []
